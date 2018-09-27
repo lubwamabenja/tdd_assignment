@@ -9,7 +9,7 @@ class User_Accounts:
 
     def verify_email(self, email):
         if email and not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            raise ValueError("Bad syntax in "+ email)
+            return False
         else:
             return True
 

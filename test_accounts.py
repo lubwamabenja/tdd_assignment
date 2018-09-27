@@ -23,6 +23,7 @@ class TestUserAccount(unittest.TestCase):
     def test_email_validity(self):
         self.assertTrue(self.account.verify_email(self.email))
         self.assertFalse(self.account.verify_email("lubwamagmail.com"))
+        
 
     def test_password_validity(self):
         self.assertTrue(self.account.verify_password(self.password))
@@ -30,7 +31,7 @@ class TestUserAccount(unittest.TestCase):
 
     def test_username_validity(self):
         self.assertTrue(self.account.verify_username(self.username, self.name))
-        self.assertFalse(self.)
+        self.assertFalse(self.account.verify_username("lubwama","lubwama"))
 
 
 
@@ -42,10 +43,12 @@ class TestUserAccount(unittest.TestCase):
         self.assertEqual(len(self.account.users), 0)
         self.account.register_user(self.name, **self.existing_account)
         self.assertEqual(len(self.account.users), 1)
+        self.assertNotEqual(len(self.account.users), 0)
 
     def test_duplicate_users(self):
         self.account.register_user(self.name, **self.existing_account)
         self.assertFalse(self.account.register_user(self.name, **self.existing_account))
+        
 
     def test_user_can_login(self):
         self.account.register_user(self.name, **self.existing_account)
