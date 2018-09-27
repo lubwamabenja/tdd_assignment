@@ -22,6 +22,7 @@ class TestUserAccount(unittest.TestCase):
 
     def test_email_validity(self):
         self.assertTrue(self.account.verify_email(self.email))
+        self.assertFalse(self.account.verify_email("lubwamagmail.com"))
 
     def test_password_validity(self):
         self.assertTrue(self.account.verify_password(self.password))
@@ -29,6 +30,9 @@ class TestUserAccount(unittest.TestCase):
 
     def test_username_validity(self):
         self.assertTrue(self.account.verify_username(self.username, self.name))
+        self.assertFalse(self.)
+
+
 
     def test_age_validity(self):
         self.assertTrue(self.account.verify_age(self.age))
