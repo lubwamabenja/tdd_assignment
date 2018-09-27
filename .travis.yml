@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.6"
+  - "3.5.2"
 
 # command to install dependencies
 install:
@@ -9,7 +9,7 @@ install:
 
 # command to run tests
 script:
-   - pytest
+   - nosetests --with-coverage --cover-tests
    - coverage report
    
 
