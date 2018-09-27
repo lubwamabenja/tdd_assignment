@@ -11,7 +11,7 @@ install:
 script:
    - nosetests --with-coverage --cover-tests
    - coverage report
-   - pytest tests/ --cov=package --cov-report term-missing
+   
 
 
 after_success:
